@@ -16,13 +16,23 @@ public class Perecedero extends Producto{
     }
 
     // Metodos
-
     @Override
     public String toString() {
-        return "Perecedero{" +
-                "nombre="+getNombre()+'\''+
-                "precio="+getPrecio()+'\''+
-                ",diasPorCaducar=" + diasPorCaducar +
+        return super.toString() +
+                "Perecedero{"+
+                "Dias por Caducar="+diasPorCaducar+
                 '}';
+    }
+
+    @Override
+    protected double calcular(int cantidad){
+        // Accediendo al metodo de la clase padre para hallar el resultadp
+        double resultado=super.calcular(cantidad);
+        return switch (diasPorCaducar){
+            case 1 -> resultado/4;
+            case 2 -> resultado/3;
+            case 3 -> resultado/2;
+            default -> resultado;
+        };
     }
 }

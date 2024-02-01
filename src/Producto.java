@@ -29,13 +29,13 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "nombre='" + nombre + '\'' +
-                ",precio=" + precio +
+                "Nombre=" + nombre + '\'' +
+                "Precio=" + precio +
                 '}';
     }
 
-    private double calcular(int cantidadDeProductos){
-        double result=cantidadDeProductos*precio;
+    protected double calcular(int cantidad){
+        double result=cantidad*precio;
         return result;
     }
 }
